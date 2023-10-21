@@ -15,8 +15,6 @@ Solution to the second practical project of the JavaScript course at [start2impa
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 The main task is to create a counter that, with the help of two buttons, allows the user to increase and decrease the counter. Based on this task, the application starts with an adjustable timer that can be configured as a simple timer or a Pomodoro timer.
@@ -43,7 +41,7 @@ Extra features:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Github repo](https://github.com/Dantalian5/js-simple-counter)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
@@ -54,12 +52,9 @@ Extra features:
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- Javascript
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- ParcelJS (bundler)
 
 ### What I learned
 
