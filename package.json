@@ -13,6 +13,9 @@
 	"author": "Marcos Valenzuela",
 	"license": "ISC",
 	"devDependencies": {
+		"@parcel/packager-raw-url": "^2.10.0",
+		"@parcel/transformer-sass": "^2.10.0",
+		"@parcel/transformer-webmanifest": "^2.10.0",
 		"parcel": "^2.10.0",
 		"parcel-namer-custom": "^0.2.0"
 	},
