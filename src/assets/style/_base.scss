@@ -1,0 +1,10 @@
+@use "variables" as var;
+body {
+	min-width: 21.875rem;
+	min-height: 100svh;
+	background: linear-gradient(
+		180deg,
+		var(--c-body-bg-soft) 0%,
+		var(--c-body-bg-dark) 100%
+	);
+}
