@@ -1,4 +1,6 @@
-@use "variables" as var;
+@use "modules/separator";
+@use "modules/hamburguer";
+@use "modules/watch";
 .m-bg-main {
 	background: linear-gradient(
 		140deg,
@@ -44,49 +46,6 @@
 		}
 	}
 }
-.hamburger {
-	font-size: 2rem;
-	cursor: pointer;
-	display: block;
-	&__line {
-		transition: y 200ms ease-in 200ms, transform 200ms ease-in,
-			opacity 0ms 300ms;
-		transform-origin: center;
-	}
-}
-.active.hamburger {
-	& .hamburger {
-		&__line {
-			transition: y 200ms ease-in, transform 200ms ease-in 200ms,
-				opacity 0ms 300ms;
-		}
-		&__top,
-		&__bottom {
-			y: 10.75px;
-		}
-		&__top {
-			transform: rotate(45deg);
-		}
-		&__middle {
-			opacity: 0;
-		}
-		&__bottom {
-			transform: rotate(-45deg);
-		}
-	}
-	& ~ .m-menubar__items {
-		visibility: visible;
-		opacity: 1;
-	}
-}
-.m-separator {
-	width: 100%;
-	height: 0.25rem;
-	border-radius: 4px;
-	background: var(--dark-grey-yellow, #ece4cd);
-	box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.25),
-		-1px -1px 2px 1px rgba(0, 0, 0, 0.25) inset;
-}
 .m-timer {
 	&__controls {
 		display: flex;
@@ -95,60 +54,7 @@
 		padding-inline: 1.5rem;
 		margin-bottom: 3rem;
 	}
-}
-.m-watch {
-	position: relative;
-	width: 100%;
-	aspect-ratio: 1;
-	border-radius: 50%;
-
-	border-radius: 500px;
-	background: #eae1cd;
-	box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.05),
-		-1px -1px 4px 2px rgba(0, 0, 0, 0.25) inset;
-	&__numbersmin {
-		position: absolute;
-		inset: 0;
-		border-radius: 50%;
-		& > span {
-			position: absolute;
-			transform: rotate(calc(30deg * var(--i)));
-			inset: 2.5%;
-			text-align: center;
-			& > p {
-				transform: rotate(calc(-30deg * var(--i)));
-				display: inline-block;
-			}
-		}
-	}
-	&__medium-circle {
-		border-radius: 50%;
-
-		position: absolute;
-		inset: 2.375rem;
-
-		border-radius: 500px;
-		border: 2px solid #f9f5e3;
-		background: #e5dbc9;
-
-		/* 3d shadow */
-		box-shadow: -1px -1px 4px 2px rgba(0, 0, 0, 0.25) inset;
-	}
-	&__inner-circle {
-		border-radius: 50%;
-
-		position: absolute;
-		inset: 1.8281rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		border-radius: 500px;
-		background: linear-gradient(
-			147deg,
-			#fff6eb 7.46%,
-			rgba(255, 246, 235, 0) 90.46%
-		);
-		box-shadow: -1px -1px 4px 2px rgba(0, 0, 0, 0.25) inset;
+	&__watch {
+		margin-bottom: 1.5rem;
 	}
 }

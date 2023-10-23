@@ -1,0 +1,35 @@
+.hamburger {
+	font-size: 2rem;
+	cursor: pointer;
+	display: block;
+	&__line {
+		transition: y 200ms ease-in 200ms, transform 200ms ease-in,
+			opacity 0ms 300ms;
+		transform-origin: center;
+	}
+}
+.active.hamburger {
+	& .hamburger {
+		&__line {
+			transition: y 200ms ease-in, transform 200ms ease-in 200ms,
+				opacity 0ms 300ms;
+		}
+		&__top,
+		&__bottom {
+			y: 10.75px;
+		}
+		&__top {
+			transform: rotate(45deg);
+		}
+		&__middle {
+			opacity: 0;
+		}
+		&__bottom {
+			transform: rotate(-45deg);
+		}
+	}
+	& ~ .m-menubar__items {
+		visibility: visible;
+		opacity: 1;
+	}
+}
