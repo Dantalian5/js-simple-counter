@@ -98,7 +98,10 @@
 							></rect>
 						</svg>
 					</button>
-					<ul class="m-menubar__items f-normal f--regular f--18">
+					<ul
+						id="js-menuItems"
+						class="m-menubar__items f-normal f--regular f--18"
+					>
 						<li><button class="m-menubar__btn">Interval</button></li>
 						<li><button class="m-menubar__btn">Watch</button></li>
 						<li><button class="m-menubar__btn">Theme</button></li>
@@ -152,7 +155,24 @@
 					</button>
 				</div>
 				<div class="m-timer__watch">
-					<div class="m-watch">
+					<div id="js-watchOuterCircle" class="m-watch">
+						<div
+							id="js-watchNumbers"
+							class="m-watch__numbersmin f-normal f--regular f--18"
+						>
+							<span style="--i: 1"><p>00</p></span>
+							<span style="--i: 2"><p>05</p></span>
+							<span style="--i: 3"><p>10</p></span>
+							<span style="--i: 4"><p>15</p></span>
+							<span style="--i: 5"><p>20</p></span>
+							<span style="--i: 6"><p>25</p></span>
+							<span style="--i: 7"><p>30</p></span>
+							<span style="--i: 8"><p>35</p></span>
+							<span style="--i: 9"><p>40</p></span>
+							<span style="--i: 10"><p>45</p></span>
+							<span style="--i: 11"><p>50</p></span>
+							<span style="--i: 12"><p>55</p></span>
+						</div>
 						<div class="m-watch__medium-circle">
 							<div class="m-watch__inner-circle">
 								<p class="m-watch__number f-digital f--48">00</p>
