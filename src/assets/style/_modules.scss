@@ -1,6 +1,7 @@
 @use "modules/separator";
 @use "modules/hamburguer";
 @use "modules/watch";
+@use "modules/buttons";
 .m-bg-main {
 	background: linear-gradient(
 		140deg,
@@ -56,5 +57,11 @@
 	}
 	&__watch {
 		margin-bottom: 1.5rem;
+	}
+	&__buttons {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
 	}
 }
