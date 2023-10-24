@@ -57,20 +57,30 @@
 	}
 	&__watch {
 		margin-bottom: 1.5rem;
-	}
-	&__buttons {
 		display: flex;
-		align-items: center;
+		flex-wrap: wrap;
+		column-gap: 0.75rem;
+		row-gap: 0.75rem;
 		justify-content: space-between;
-		gap: 1rem;
-		&__left,
-		&__right {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			align-items: center;
-			gap: 24px;
-		}
+		align-items: center;
+	}
+	&__clock {
+		flex: 1 1 100%;
+		max-width: 19.5rem;
+		margin-inline: auto;
+	}
+	&__separator {
+		width: 100%;
+	}
+	&__left-btn,
+	&__right-btn {
+		flex: 1 1 auto;
+		max-width: 8rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 24px;
 	}
 }
 .m-config-icon {
@@ -123,6 +133,37 @@
 					border: none;
 				}
 			}
+		}
+	}
+}
+
+@media (min-width: 42.5rem) {
+	.m-menubar {
+		width: 100%;
+		& .hamburger {
+			display: none;
+		}
+		&__items {
+			position: static;
+			opacity: 1;
+			visibility: visible;
+			transform: translate(0, 0);
+			flex-direction: row;
+			justify-content: space-between;
+			width: 100%;
+			background: none;
+			box-shadow: none;
+			row-gap: 0;
+			padding: 0;
+			border-radius: 0;
+		}
+	}
+	.m-timer {
+		&__left-btn {
+			order: -1;
+		}
+		&__separator {
+			display: none;
 		}
 	}
 }

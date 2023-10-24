@@ -1,6 +1,7 @@
-@use "variables" as var;
 .main-section {
-	padding-inline: max(1.5rem, 6%);
+	width: 100%;
+	max-width: 37.5rem;
+	padding-inline: clamp(1.5rem, 6%, 2rem);
 	padding-block: 0;
 	box-shadow: 0px 94px 37px -32px rgba(59, 85, 94, 0.25),
 		0px 64px 49px -32px rgba(59, 85, 94, 0.79),
@@ -43,4 +44,7 @@
 			margin-left: auto;
 		}
 	}
+}
+
+@media (min-width: 1000px) {
 }

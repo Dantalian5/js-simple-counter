@@ -11,5 +11,3 @@ document.addEventListener("click", (event) => {
 		hamburguerMenu.classList.remove("active");
 	}
 });
-
-const watchOuterCircle = document.getElementById("js-watchNumbers");
