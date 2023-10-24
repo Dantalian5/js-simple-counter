@@ -16,7 +16,11 @@
 		padding-block: 2.5rem;
 	}
 	&__info {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
 		&__subsection {
+			width: 100%;
 			padding-block: 2.5rem;
 		}
 	}
@@ -32,6 +36,7 @@
 		margin-bottom: 32px;
 	}
 	&__body {
+		padding: 1rem;
 		& > :not(:last-child) {
 			margin-bottom: 1.5rem;
 		}
@@ -46,5 +51,27 @@
 	}
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 42.5rem) {
+	.main-section {
+		max-width: min(87.5%, 55.375rem);
+		border-radius: 1.25rem;
+		&__head {
+			flex-direction: column;
+			gap: 1.25rem;
+			justify-content: space-between;
+		}
+	}
+}
+
+@media (min-width: 62.5rem) {
+	.main-section {
+		&__head,
+		&__timer {
+			padding-inline: 4rem;
+		}
+		&__info {
+			flex-wrap: nowrap;
+			gap: 1rem;
+		}
+	}
 }
