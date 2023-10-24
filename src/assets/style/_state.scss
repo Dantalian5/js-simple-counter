@@ -1,0 +1,10 @@
+.m-button__inner:active {
+	box-shadow: var(--shadow-3d-inner--presed);
+}
+.m-timer__ctrl-btn:active {
+	scale: 0.9;
+}
+.m-checkbox__input:checked ~ .m-checkbox__label::after {
+	background: #95b049;
+	border: none;
+}

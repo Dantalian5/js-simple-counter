@@ -55,6 +55,10 @@
 		padding-inline: 1.5rem;
 		margin-bottom: 3rem;
 	}
+	&__ctrl-btn {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
 	&__watch {
 		margin-bottom: 1.5rem;
 		display: flex;
@@ -126,14 +130,6 @@
 	&__input {
 		visibility: hidden;
 		position: absolute;
-		&:checked {
-			& ~ .m-checkbox__label {
-				&::after {
-					background: #95b049;
-					border: none;
-				}
-			}
-		}
 	}
 }
 
