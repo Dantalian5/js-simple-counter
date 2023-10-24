@@ -14,4 +14,33 @@
 	&__timer {
 		padding-block: 2.5rem;
 	}
+	&__info {
+		&__subsection {
+			padding-block: 2.5rem;
+		}
+	}
+}
+.subsection {
+	&__icon {
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 32px;
+	}
+	&__body {
+		& > :not(:last-child) {
+			margin-bottom: 1.5rem;
+		}
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		position: relative;
+		&__right {
+			margin-left: auto;
+		}
+	}
 }
