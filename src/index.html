@@ -125,7 +125,7 @@
 							/>
 						</svg>
 					</button>
-					<button class="m-timer__ctrl-btn">
+					<button id="js-buttonPlay" class="m-timer__ctrl-btn">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="41"
@@ -139,7 +139,7 @@
 							/>
 						</svg>
 					</button>
-					<button class="m-timer__ctrl-btn">
+					<button id="js-buttonPause" class="m-timer__ctrl-btn">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="40"
@@ -174,13 +174,17 @@
 							<span style="--i: 12"><p>55</p></span>
 						</div>
 						<div class="m-watch__circle m-watch__circle--medium">
-							<div id="js-watchSegundero" class="m-watch__segundero">
-								<span></span>
-							</div>
+							<div
+								id="js-watchSegundero"
+								class="m-watch__segundero"
+								style="--i: 0"
+							></div>
 							<div class="m-watch__circle m-watch__circle--inner">
-								<div id="js-watchMinutero" class="m-watch__minutero">
-									<span></span>
-								</div>
+								<div
+									id="js-watchMinutero"
+									class="m-watch__minutero"
+									style="--i: 0"
+								></div>
 								<input
 									id="js-inputCounter"
 									type="number"

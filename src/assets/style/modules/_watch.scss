@@ -58,11 +58,12 @@
 	&__minutero {
 		position: absolute;
 		inset: 6%;
-		transform: rotate(calc(30deg * 0));
+		transform: rotate(calc(6deg * var(--i)));
 
 		border-radius: 1rem;
 
-		& > span {
+		&::after {
+			content: "";
 			position: absolute;
 			top: 0;
 			left: 50%;
@@ -73,10 +74,10 @@
 			box-shadow: var(--shadow-3d-inner);
 		}
 	}
-	&__segundero > span {
+	&__segundero::after {
 		background-color: var(--c-verde-cactus);
 	}
-	&__minutero > span {
+	&__minutero::after {
 		background-color: var(--c-rojo-sol);
 	}
 }
