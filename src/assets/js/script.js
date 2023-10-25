@@ -6,9 +6,11 @@ const buttonPlus = document.getElementById("js-buttonPlus");
 const buttonMinus = document.getElementById("js-buttonMinus");
 const buttonPlay = document.getElementById("js-buttonPlay");
 const buttonPause = document.getElementById("js-buttonPause");
+const buttonReset = document.getElementById("js-buttonReset");
 
 let valueCounter = 0;
-let time;
+let valueCounterOldValue = 0;
+let playTime;
 let segundero = 60;
 
 hamburguerMenu.addEventListener("click", (event) => {
@@ -23,52 +25,59 @@ document.addEventListener("click", (event) => {
 	}
 });
 
-function valueCounterUpdate() {
-	valueCounter = +inputCounter.value;
-	if (valueCounter < 0 || valueCounter == "") {
-		valueCounter = 0;
-	} else if (valueCounter > 60) {
-		valueCounter = 60;
+function valueCounterUpdate(val) {
+	let cont = +inputCounter.value + val;
+	if (cont < 0 || cont == "") {
+		cont = 0;
+	} else if (cont > 60) {
+		cont = 60;
 	}
-	if (valueCounter < 10) {
-		inputCounter.value = "0" + valueCounter;
+	if (cont < 10) {
+		inputCounter.value = "0" + cont;
 	} else {
-		inputCounter.value = valueCounter;
+		inputCounter.value = cont;
 	}
-	let temp = "--i:" + valueCounter;
-	watchMinutero.setAttribute("style", temp);
+	valueCounter = cont;
+	setMarkers(watchMinutero, cont);
+}
+function setMarkers(object, value) {
+	object.setAttribute("style", "--i:" + value);
+}
+
+function timer() {
+	--segundero;
+	if (valueCounter == 0) {
+		clearTimeout(playTime);
+		segundero = 60;
+	}
+	if (segundero <= 0) {
+		segundero = 60;
+		valueCounterUpdate(-1);
+	}
+	setMarkers(watchSegundero, segundero);
 }
 
 inputCounter.addEventListener("input", (event) => {
-	valueCounterUpdate();
-	console.log(valueCounter);
+	valueCounterUpdate(0);
 });
 
 buttonPlus.addEventListener("click", (event) => {
-	inputCounter.value = +inputCounter.value + 1;
-	valueCounterUpdate();
+	valueCounterUpdate(+1);
 });
 buttonMinus.addEventListener("click", (event) => {
-	inputCounter.value = +inputCounter.value - 1;
-	valueCounterUpdate();
+	valueCounterUpdate(-1);
 });
 
 buttonPlay.addEventListener("click", (event) => {
-	time = setInterval(function () {
-		--segundero;
-		if (valueCounter == 0) {
-			clearTimeout(time);
-			segundero = 60;
-		}
-		if (segundero == 0) {
-			segundero = 60;
-			inputCounter.value = +inputCounter.value - 1;
-			valueCounterUpdate();
-		}
-		let temp = "--i:" + segundero;
-		watchSegundero.setAttribute("style", temp);
-	}, 1000);
+	playTime = setInterval(timer, 1000);
 });
 buttonPause.addEventListener("click", (event) => {
-	clearTimeout(time);
+	clearTimeout(playTime);
+});
+buttonReset.addEventListener("click", (event) => {
+	clearTimeout(playTime);
+	segundero = 60;
+	setMarkers(watchSegundero, segundero);
+	inputCounter.value = 0;
+	valueCounterUpdate(0);
 });
