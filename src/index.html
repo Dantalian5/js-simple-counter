@@ -102,8 +102,8 @@
 						id="js-menuItems"
 						class="m-menubar__items f-normal f--regular f--18"
 					>
-						<li><button class="m-menubar__btn">Watch</button></li>
-						<li><button class="m-menubar__btn">Theme</button></li>
+						<li><button class="m-menubar__btn">Desert</button></li>
+						<li><button class="m-menubar__btn">Ocean</button></li>
 					</ul>
 				</div>
 			</div>
@@ -278,9 +278,6 @@
 								class="m-checkbox__label f-normal f--semibold f--18"
 								>Pomodoro Cycle</label
 							>
-							<p class="subsection__item__right f-normal f--semibold f--24">
-								x5
-							</p>
 						</div>
 						<div class="subsection__item">
 							<input id="pauseTime" type="checkbox" class="m-checkbox__input" />
@@ -289,9 +286,41 @@
 								class="m-checkbox__label f-normal f--semibold f--18"
 								>Pause time</label
 							>
-							<p class="subsection__item__right f-normal f--semibold f--24">
-								5 min
-							</p>
+						</div>
+						<div class="subsection__item">
+							<label for="js-cycleNumber" class="f-normal f--semibold f--18"
+								>-- Cycles Counter</label
+							>
+							<select
+								name="cycleNumber"
+								id="js-cycleNumber"
+								class="subsection__item__right f-normal f--semibold f--24 m-cycle-input"
+								title="choose a number of repetitions"
+							>
+								<option value="1" selected>x 1</option>
+								<option value="2">x 2</option>
+								<option value="3">x 3</option>
+								<option value="4">x 4</option>
+								<option value="5">x 5</option>
+							</select>
+						</div>
+						<div class="subsection__item">
+							<label for="js-pauseNumber" class="f-normal f--semibold f--18"
+								>-- Pause time</label
+							>
+							<select
+								name="pauseNumber"
+								id="js-pauseNumber"
+								class="subsection__item__right f-normal f--semibold f--24 m-cycle-input"
+								title="choose a time for pause"
+							>
+								<option value="5" selected>5 min</option>
+								<option value="10">10 min</option>
+								<option value="15">15 min</option>
+								<option value="20">20 min</option>
+								<option value="25">25 min</option>
+								<option value="30">30 min</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -334,7 +363,8 @@
 				</div>
 			</div>
 		</main>
+		<audio id="tone" src="assets/audio/alarm-tone.wav" preload="auto"></audio>
 		<!-- add javascript file -->
-		<script src="assets/js/script.js"></script>
+		<script type="module" src="assets/js/script.js"></script>
 	</body>
 </html>

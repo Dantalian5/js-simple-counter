@@ -24,6 +24,7 @@
 		".js$": "assets/js/[name].[hash].[type]",
 		".ttf$": "assets/fonts/[name].[hash].[type]",
 		".svg$|.jpg$|.png$|.webp$|.webmanifest$": "assets/images/[name].[hash].[type]",
-		".pdf$": "assets/docs/[name].[hash].[type]"
+		".pdf$": "assets/docs/[name].[hash].[type]",
+		".wav$": "assets/audio/[name].[hash].[type]"
 	}
 }

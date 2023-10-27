@@ -7,11 +7,11 @@ const buttonMinus = document.getElementById("js-buttonMinus");
 const buttonPlay = document.getElementById("js-buttonPlay");
 const buttonPause = document.getElementById("js-buttonPause");
 const buttonReset = document.getElementById("js-buttonReset");
-
 let valueCounter = 0;
 let valueCounterOldValue = 0;
 let playTime;
 let segundero = 60;
+let timerActive = false;
 
 hamburguerMenu.addEventListener("click", (event) => {
 	hamburguerMenu.classList.toggle("active");
@@ -49,6 +49,8 @@ function timer() {
 	if (valueCounter == 0) {
 		clearTimeout(playTime);
 		segundero = 60;
+		document.getElementById("tone").play();
+		alert("Time Over!");
 	}
 	if (segundero <= 0) {
 		segundero = 60;
@@ -69,10 +71,16 @@ buttonMinus.addEventListener("click", (event) => {
 });
 
 buttonPlay.addEventListener("click", (event) => {
-	playTime = setInterval(timer, 1000);
+	if (!timerActive && valueCounter != 0) {
+		playTime = setInterval(timer, 1000);
+		timerActive = true;
+	}
 });
 buttonPause.addEventListener("click", (event) => {
-	clearTimeout(playTime);
+	if (timerActive) {
+		clearTimeout(playTime);
+		timerActive = false;
+	}
 });
 buttonReset.addEventListener("click", (event) => {
 	clearTimeout(playTime);
