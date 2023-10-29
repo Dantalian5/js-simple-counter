@@ -62,7 +62,6 @@
 		transform: rotate(calc(6deg * var(--i)));
 
 		border-radius: 1rem;
-
 		&::after {
 			content: "";
 			position: absolute;

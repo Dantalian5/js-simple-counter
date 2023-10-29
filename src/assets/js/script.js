@@ -1,3 +1,4 @@
+// Variables for DOM manipulation;
 const hamburguerMenu = document.getElementById("js-hamburguerMenu");
 const inputCounter = document.getElementById("js-inputCounter");
 const watchMinutero = document.getElementById("js-watchMinutero");
@@ -7,12 +8,14 @@ const buttonMinus = document.getElementById("js-buttonMinus");
 const buttonPlay = document.getElementById("js-buttonPlay");
 const buttonPause = document.getElementById("js-buttonPause");
 const buttonReset = document.getElementById("js-buttonReset");
-let valueCounter = 0;
-let valueCounterOldValue = 0;
-let playTime;
-let segundero = 60;
-let timerActive = false;
+// Variables for Script manipulation;
+let valueCounter = 0; // value of the counter input
+let valueCounterOldValue = 0; // value of the counter input after a cycle
+let playTime; // variable for setInterval function
+let segundero = 60; // variable for 60 second manipulation
+let timerActive = false; // where the timer is active or no
 
+// hamburguer menu function;
 hamburguerMenu.addEventListener("click", (event) => {
 	hamburguerMenu.classList.toggle("active");
 });
@@ -25,49 +28,85 @@ document.addEventListener("click", (event) => {
 	}
 });
 
-function valueCounterUpdate(val) {
-	let cont = +inputCounter.value + val;
-	if (cont < 0 || cont == "") {
-		cont = 0;
-	} else if (cont > 60) {
-		cont = 60;
-	}
-	if (cont < 10) {
-		inputCounter.value = "0" + cont;
+// function for updating input value on DOM & internal value using -1, 0, +1 as step values;
+function valueCounterUpdate(val = 0, oldValue = false) {
+	let cont;
+	if (oldValue) {
+		cont = valueCounterOldValue;
 	} else {
-		inputCounter.value = cont;
+		cont = +inputCounter.value + val;
 	}
-	valueCounter = cont;
-	setMarkers(watchMinutero, cont);
+	inputCounter.value = valueValidator(cont);
+	valueCounter = +inputCounter.value;
+	setMarkers(watchMinutero, valueCounter);
 }
+function valueValidator(value) {
+	switch (true) {
+		case value < 0 || value == "":
+			value = 0;
+		case value < 10:
+			value = "0" + value;
+			break;
+		case value > 60:
+			value = 60;
+			break;
+	}
+	return value;
+}
+//function for seting markers on position
 function setMarkers(object, value) {
 	object.setAttribute("style", "--i:" + value);
 }
 
+// timer function;
 function timer() {
 	--segundero;
-	if (valueCounter == 0) {
-		clearTimeout(playTime);
-		segundero = 60;
-		document.getElementById("tone").play();
-		alert("Time Over!");
+	switch (true) {
+		case valueCounter == 0:
+			timerAlert();
+			timerReset();
+			break;
+		case segundero == 0:
+			segundero = 60;
+			valueCounterUpdate(-1);
 	}
-	if (segundero <= 0) {
-		segundero = 60;
-		valueCounterUpdate(-1);
-	}
+
 	setMarkers(watchSegundero, segundero);
 }
+// timer manipulation;
+function timerPause() {
+	clearInterval(playTime);
+	timerActive = false;
+}
+function timerReset() {
+	timerPause();
+	segundero = 60;
+	valueCounterUpdate(0, true);
+}
+function timerAlert() {
+	document.getElementById("tone").play();
+	alert("Time Over!");
+}
 
+// DOM manipulation: eventListeners if controls buttons;
 inputCounter.addEventListener("input", (event) => {
 	valueCounterUpdate(0);
+	if (!timerActive) {
+		valueCounterOldValue = valueCounter;
+	}
 });
 
 buttonPlus.addEventListener("click", (event) => {
 	valueCounterUpdate(+1);
+	if (!timerActive) {
+		valueCounterOldValue = valueCounter;
+	}
 });
 buttonMinus.addEventListener("click", (event) => {
 	valueCounterUpdate(-1);
+	if (!timerActive) {
+		valueCounterOldValue = valueCounter;
+	}
 });
 
 buttonPlay.addEventListener("click", (event) => {
@@ -78,14 +117,10 @@ buttonPlay.addEventListener("click", (event) => {
 });
 buttonPause.addEventListener("click", (event) => {
 	if (timerActive) {
-		clearTimeout(playTime);
-		timerActive = false;
+		timerPause();
 	}
 });
 buttonReset.addEventListener("click", (event) => {
-	clearTimeout(playTime);
-	segundero = 60;
+	timerReset();
 	setMarkers(watchSegundero, segundero);
-	inputCounter.value = 0;
-	valueCounterUpdate(0);
 });
