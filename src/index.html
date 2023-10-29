@@ -269,58 +269,27 @@
 					<div class="subsection__body">
 						<div class="subsection__item">
 							<input
-								id="pomodoroCycle"
+								id="js-cycleCheck"
 								type="checkbox"
 								class="m-checkbox__input"
 							/>
 							<label
-								for="pomodoroCycle"
+								for="js-cycleCheck"
 								class="m-checkbox__label f-normal f--semibold f--18"
-								>Pomodoro Cycle</label
+								>On Cycle</label
 							>
 						</div>
 						<div class="subsection__item">
-							<input id="pauseTime" type="checkbox" class="m-checkbox__input" />
+							<input
+								id="js-pauseCheck"
+								type="checkbox"
+								class="m-checkbox__input"
+							/>
 							<label
-								for="pauseTime"
+								for="js-pauseCheck"
 								class="m-checkbox__label f-normal f--semibold f--18"
 								>Pause time</label
 							>
-						</div>
-						<div class="subsection__item">
-							<label for="js-cycleNumber" class="f-normal f--semibold f--18"
-								>-- Cycles Counter</label
-							>
-							<select
-								name="cycleNumber"
-								id="js-cycleNumber"
-								class="subsection__item__right f-normal f--semibold f--24 m-cycle-input"
-								title="choose a number of repetitions"
-							>
-								<option value="1" selected>x 1</option>
-								<option value="2">x 2</option>
-								<option value="3">x 3</option>
-								<option value="4">x 4</option>
-								<option value="5">x 5</option>
-							</select>
-						</div>
-						<div class="subsection__item">
-							<label for="js-pauseNumber" class="f-normal f--semibold f--18"
-								>-- Pause time</label
-							>
-							<select
-								name="pauseNumber"
-								id="js-pauseNumber"
-								class="subsection__item__right f-normal f--semibold f--24 m-cycle-input"
-								title="choose a time for pause"
-							>
-								<option value="5" selected>5 min</option>
-								<option value="10">10 min</option>
-								<option value="15">15 min</option>
-								<option value="20">20 min</option>
-								<option value="25">25 min</option>
-								<option value="30">30 min</option>
-							</select>
 						</div>
 					</div>
 				</div>
@@ -349,15 +318,30 @@
 					<div class="subsection__body">
 						<div class="subsection__item">
 							<p class="f-normal f--semibold f--18">Cycles Count:</p>
-							<p class="subsection__item__right f-digital f--18">--</p>
+							<p
+								id="js-cycleTime"
+								class="subsection__item__right f-digital f--18"
+							>
+								--
+							</p>
 						</div>
 						<div class="subsection__item">
 							<p class="f-normal f--semibold f--18">Total Work Time:</p>
-							<p class="subsection__item__right f-digital f--18">--:--</p>
+							<p
+								id="js-workTime"
+								class="subsection__item__right f-digital f--18"
+							>
+								--:--
+							</p>
 						</div>
 						<div class="subsection__item">
 							<p class="f-normal f--semibold f--18">Total Pause Time:</p>
-							<p class="subsection__item__right f-digital f--18">--:--</p>
+							<p
+								id="js-pauseTime"
+								class="subsection__item__right f-digital f--18"
+							>
+								--:--
+							</p>
 						</div>
 					</div>
 				</div>
