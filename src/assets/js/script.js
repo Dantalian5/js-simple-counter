@@ -40,13 +40,14 @@ document.addEventListener("click", (event) => {
 
 function timerPlay() {
 	timerActive = true;
+	clearInterval(pauseTime);
 	playTime = setInterval(function () {
 		--segundero;
 		switch (true) {
 			case valueCounter == 0:
 				if (cycleCheck.checked) {
 					valueCounterUpdate(0, true);
-					timerDataUpdate(1, 30, 0);
+					DataUpdate(1, 1, 0);
 				} else {
 					timerReset();
 					timerAlarm();
@@ -65,8 +66,8 @@ function timerPause() {
 	clearInterval(playTime);
 	if (pauseCheck.checked) {
 		pauseTime = setInterval(function () {
-			timerDataUpdate(0, 0, 1);
-		}, 1000);
+			DataUpdate(0, 0, 1);
+		}, 60000);
 	}
 }
 function timerReset() {
@@ -89,6 +90,22 @@ function WatchUpdate(minutes, seconds) {
 	if (seconds != "-") {
 		watchSegundero.setAttribute("style", "--i:" + seconds);
 	}
+}
+function DataUpdate(cycle, work, pause, reset = false) {
+	timerCycles = +timerCycles + cycle;
+	timerWorkTime = +timerWorkTime + work;
+	timerPauseTime = +timerPauseTime + pause;
+
+	console.log(timerCycles);
+	dataCycles.innerText = valueValidator(+timerCycles);
+	dataWork.innerText =
+		valueValidator(Math.floor(+timerWorkTime / 60)) +
+		":" +
+		valueValidator(+timerWorkTime % 60);
+	dataPause.innerText =
+		valueValidator(Math.floor(+timerPauseTime / 60)) +
+		":" +
+		valueValidator(+timerPauseTime % 60);
 }
 
 // function for updating input value on DOM & internal value using -1, 0, +1 as step values;
@@ -118,23 +135,6 @@ function valueValidator(value, max = 99) {
 }
 
 // timer function;
-
-function timerDataUpdate(cycle, work, pause, reset = false) {
-	timerCycles = +timerCycles + cycle;
-	timerWorkTime = +timerWorkTime + work;
-	timerPauseTime = +timerPauseTime + pause;
-
-	console.log(timerCycles);
-	dataCycles.innerText = valueValidator(+timerCycles);
-	dataWork.innerText =
-		valueValidator(Math.floor(+timerWorkTime / 60)) +
-		":" +
-		valueValidator(+timerWorkTime % 60);
-	dataPause.innerText =
-		valueValidator(Math.floor(+timerPauseTime / 60)) +
-		":" +
-		valueValidator(+timerPauseTime % 60);
-}
 
 // DOM manipulation: eventListeners if controls buttons;
 inputCounter.addEventListener("input", (event) => {
