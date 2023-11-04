@@ -33,7 +33,7 @@ hamburguerMenu.addEventListener("click", (event) => {
 document.addEventListener("click", (event) => {
 	if (
 		event.target.closest("#js-hamburguerMenu") === null &&
-		event.target.closest("#js-menuItems")
+		event.target.closest("#js-menuItems") === null
 	) {
 		hamburguerMenu.classList.remove("active");
 	}
@@ -179,3 +179,9 @@ buttonResetData.addEventListener("click", (event) => {
 	dataWork.innerText = "--:--";
 	dataPause.innerText = "--:--";
 });
+
+//todo: minimize script, collapse internal function and create more readable structure
+//todo: add theme feacture
+//todo: add help to the page
+//todo: fix opengraph, (help on vercel)
+//todo:
