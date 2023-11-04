@@ -6,10 +6,6 @@ function M(e=0,t=!1){let n;n=t?j:+c.value+e,c.value=p(n,60),f(y=+c.value,"-")}fu
 n.addEventListener("click",e=>{n.classList.toggle("active")}),document.addEventListener("click",e=>{null===e.target.closest("#js-hamburguerMenu")&&null===e.target.closest("#js-menuItems")&&n.classList.remove("active")}),// timer function;
 // DOM manipulation: eventListeners if controls buttons;
 c.addEventListener("input",e=>{M(0),k||(j=y)}),d.addEventListener("click",e=>{M(1),k||(j=y)}),u.addEventListener("click",e=>{M(-1),k||(j=y)}),a.addEventListener("click",n=>{k||0==y||(k=!0,clearInterval(t),e=setInterval(function(){switch(--B,!0){case 0==y:m.checked?(M(0,!0),x(1,1,0)):(T(),document.getElementById("tone").play(),alert("Time Over!"));break;case 0==B:B=60,M(-1)}//setMarkers(watchSegundero, segundero);
-f("-",B)},1e3))}),i.addEventListener("click",n=>{k&&(k=!1,clearInterval(e),E.checked&&(t=setInterval(function(){x(0,0,1)},6e4)))}),r.addEventListener("click",e=>{T()}),o.addEventListener("click",e=>{h=0,b=0,L=0,g.innerText="--",I.innerText="--:--",v.innerText="--:--"});//todo: minimize script, collapse internal function and create more readable structure
-//todo: add theme feacture
-//todo: add help to the page
-//todo: fix opengraph, (help on vercel)
-//# sourceMappingURL=script.44a81967.js.map
+f("-",B)},1e3))}),i.addEventListener("click",n=>{k&&(k=!1,clearInterval(e),E.checked&&(t=setInterval(function(){x(0,0,1)},6e4)))}),r.addEventListener("click",e=>{T()}),o.addEventListener("click",e=>{h=0,b=0,L=0,g.innerText="--",I.innerText="--:--",v.innerText="--:--"});//# sourceMappingURL=script.44a81967.js.map
 
 //# sourceMappingURL=script.44a81967.js.map
