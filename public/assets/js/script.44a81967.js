@@ -10,7 +10,6 @@ f("-",B)},1e3))}),i.addEventListener("click",n=>{k&&(k=!1,clearInterval(e),E.che
 //todo: add theme feacture
 //todo: add help to the page
 //todo: fix opengraph, (help on vercel)
-//todo:
 //# sourceMappingURL=script.44a81967.js.map
 
 //# sourceMappingURL=script.44a81967.js.map
