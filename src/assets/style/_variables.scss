@@ -1,13 +1,16 @@
 :root {
 	--c-withe: #fff;
-	--c-body-bg-soft: #c6e2c8;
-	--c-body-bg-dark: #97b7a1;
-	--c-main-bg-soft: #fff6eb;
-	--c-main-bg-dark: #ecdfbd;
-	--c-rojo-sol: #f4b196;
-	--c-verde-cactus: #95b049;
-	--c-bright-green: #33e59d;
+	--c-black: #000;
+	//---shadows-variables:----------------
 	--shadow-3d-inner: -1px -1px 4px 2px rgba(0, 0, 0, 0.25) inset;
 	--shadow-3d-inner--presed: 1px 1px 4px 2px rgba(0, 0, 0, 0.25) inset;
 	--shadow-3d-inner-S: -1px -1px 2px 1px rgba(0, 0, 0, 0.25) inset;
+	--shadow-main: 0px 94px 37px -32px rgba(59, 85, 94, 0.25),
+		0px 64px 49px -32px rgba(59, 85, 94, 0.79),
+		0px 25px 24px 13px rgba(59, 85, 94, 0.25);
+	--shadow-checkbox-inner: -1px -1px 4px 0px rgba(0, 0, 0, 0.25) inset;
+	--shadow-checkbox-outer: -1px -1px 2px 0px rgba(0, 0, 0, 0.25);
+	--shadow-separator: 1px 1px 4px 0px rgba(0, 0, 0, 0.25);
+	--shadow-3d-top-left-outer: -2px -2px 4px 0px rgba(0, 0, 0, 0.05);
+	--shadow-3d-bottom-right-outer: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }

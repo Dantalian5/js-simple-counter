@@ -3,24 +3,23 @@
 	width: 100%;
 	aspect-ratio: 1;
 	border-radius: 50%;
-	background: #eae1cd;
-	box-shadow: -2px -2px 4px 0px rgba(0, 0, 0, 0.05),
-		-1px -1px 4px 2px rgba(0, 0, 0, 0.25) inset;
+	background: var(--c-watch-outer);
+	box-shadow: var(--shadow-3d-top-left-outer), var(--shadow-3d-inner);
 	overflow: hidden;
 	&__circle {
 		position: absolute;
 		border-radius: 50%;
 		inset: 12%;
 		&--medium {
-			border: 2px solid #f9f5e3;
-			background: #e5dbc9;
+			border: 2px solid var(--c-watch-border);
+			background: var(--c-watch-medium);
 			box-shadow: var(--shadow-3d-inner);
 		}
 		&--inner {
 			background: linear-gradient(
 				147deg,
-				#fff6eb 7.46%,
-				rgba(255, 246, 235, 0) 90.46%
+				var(--c-watch-inner-top) 7.46%,
+				var(--c-watch-inner-bottom) 90.46%
 			);
 			box-shadow: var(--shadow-3d-inner);
 		}
@@ -77,13 +76,13 @@
 	&__segundero {
 		transition: transform 1s linear;
 		&::after {
-			background-color: var(--c-verde-cactus);
+			background-color: var(--c-accent-positive);
 		}
 	}
 	&__minutero {
 		transition: transform 0.5s linear;
 		&::after {
-			background-color: var(--c-rojo-sol);
+			background-color: var(--c-accent-negative);
 		}
 	}
 }
