@@ -138,6 +138,13 @@
 .m-audio {
 	visibility: hidden;
 }
+.m-reset-button {
+	border: 1px solid black;
+	border-radius: 0.8rem;
+	padding: 0.8rem 1.2rem;
+	box-shadow: var(--shadow-3d-inner);
+	margin-inline: auto;
+}
 
 @media (min-width: 42.5rem) {
 	.m-menubar {

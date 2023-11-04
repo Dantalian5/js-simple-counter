@@ -9,6 +9,7 @@ const buttonMinus = document.getElementById("js-buttonMinus");
 const buttonPlay = document.getElementById("js-buttonPlay");
 const buttonPause = document.getElementById("js-buttonPause");
 const buttonReset = document.getElementById("js-buttonReset");
+const buttonResetData = document.getElementById("js-resetData");
 const cycleCheck = document.getElementById("js-cycleCheck");
 const pauseCheck = document.getElementById("js-pauseCheck");
 const dataCycles = document.getElementById("js-cycleTime");
@@ -96,7 +97,7 @@ function DataUpdate(cycle, work, pause, reset = false) {
 	timerWorkTime = +timerWorkTime + work;
 	timerPauseTime = +timerPauseTime + pause;
 
-	console.log(timerCycles);
+	console.log(timerPauseTime);
 	dataCycles.innerText = valueValidator(+timerCycles);
 	dataWork.innerText =
 		valueValidator(Math.floor(+timerWorkTime / 60)) +
@@ -169,4 +170,12 @@ buttonPause.addEventListener("click", (event) => {
 });
 buttonReset.addEventListener("click", (event) => {
 	timerReset();
+});
+buttonResetData.addEventListener("click", (event) => {
+	timerCycles = 0;
+	timerWorkTime = 0;
+	timerPauseTime = 0;
+	dataCycles.innerText = "--";
+	dataWork.innerText = "--:--";
+	dataPause.innerText = "--:--";
 });
