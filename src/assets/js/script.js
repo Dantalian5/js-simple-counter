@@ -184,4 +184,3 @@ buttonResetData.addEventListener("click", (event) => {
 //todo: add theme feacture
 //todo: add help to the page
 //todo: fix opengraph, (help on vercel)
-//todo:
