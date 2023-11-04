@@ -1,0 +1,78 @@
+.main-section {
+	width: 100%;
+	overflow: hidden;
+	max-width: 37.5rem;
+	padding-inline: clamp(1.5rem, 6%, 2rem);
+	padding-block: 0;
+	box-shadow: 0px 94px 37px -32px rgba(59, 85, 94, 0.25),
+		0px 64px 49px -32px rgba(59, 85, 94, 0.79),
+		0px 25px 24px 13px rgba(59, 85, 94, 0.25);
+	&__head {
+		display: flex;
+		padding-block: 2.5rem;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__timer {
+		padding-block: 2.5rem;
+	}
+	&__info {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		&__subsection {
+			width: 100%;
+			padding-block: 2.5rem;
+		}
+	}
+}
+.subsection {
+	&__icon {
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 32px;
+	}
+	&__body {
+		padding: 1rem;
+		& > :not(:last-child) {
+			margin-bottom: 1.5rem;
+		}
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		position: relative;
+		&__right {
+			margin-left: auto;
+		}
+	}
+}
+
+@media (min-width: 42.5rem) {
+	.main-section {
+		max-width: min(87.5%, 55.375rem);
+		border-radius: 1.25rem;
+		&__head {
+			flex-direction: column;
+			gap: 1.25rem;
+			justify-content: space-between;
+		}
+	}
+}
+
+@media (min-width: 62.5rem) {
+	.main-section {
+		&__head,
+		&__timer {
+			padding-inline: 4rem;
+		}
+		&__info {
+			flex-wrap: nowrap;
+			gap: 1rem;
+		}
+	}
+}

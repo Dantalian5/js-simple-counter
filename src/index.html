@@ -4,27 +4,365 @@
 		<!-- Base configuration -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="" />
+		<meta
+			name="description"
+			content="A counter, a timer, and a pomodoro-timer, a simple work for a javascript project"
+		/>
 		<!-- Title of the page -->
-		<title>Marcos Valenzuela | Portfolio</title>
+		<title>Time-Counter by MV</title>
 		<!-- Open Graph Tag for social media -->
 		<meta name="author" content="Marcos Valenzuela" />
-		<meta property="og:title" content="" />
+		<meta property="og:title" content="Time-Counter by MV" />
 		<meta property="og:type" content="website" />
-		<meta property="og:description" content="" />
+		<meta
+			property="og:description"
+			content="A counter, a timer, and a pomodoro-timer, a simple work for a javascript project"
+		/>
 		<meta property="og:url" content="" />
 		<meta property="og:image" content="" />
-		<meta property="og:image:alt" content="" />
+		<meta property="og:image:alt" content="JS timer-counter" />
 		<!-- Apple web application config -->
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<!-- Favicons setup https://realfavicongenerator.net -->
-		<link rel="icon" type="image/png" href="icon.svg" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="assets/images/favicon-package/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="assets/images/favicon-package/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="assets/images/favicon-package/favicon-16x16.png"
+		/>
+		<link
+			rel="manifest"
+			href="assets/images/favicon-package/site.webmanifest"
+		/>
+		<link
+			rel="mask-icon"
+			href="assets/images/favicon-package/safari-pinned-tab.svg"
+			color="#5bbad5"
+		/>
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
 		<!-- Stylesheet setup -->
 		<link rel="stylesheet" href="assets/style/style.scss" />
 	</head>
 	<body>
+		<main class="main-section m-bg-main" aria-label="main-section">
+			<div class="main-section__head">
+				<div class="main-section__title">
+					<h1 class="f-normal f--semibold f--32">Counter</h1>
+				</div>
+				<div class="m-menubar">
+					<button id="js-hamburguerMenu" class="hamburger">
+						<svg
+							class="hamburger__box font-h2 font-h2--big"
+							xmlns="http://www.w3.org/2000/svg"
+							width="1em"
+							height="1em"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+						>
+							<rect
+								class="hamburger__line hamburger__top"
+								width="20"
+								height="2.5"
+								x="2"
+								y="4.75"
+								rx="2"
+							></rect>
+							<rect
+								class="hamburger__line hamburger__middle"
+								width="20"
+								height="2.5"
+								x="2"
+								y="10.75"
+								rx="2"
+							></rect>
+							<rect
+								class="hamburger__line hamburger__bottom"
+								width="20"
+								height="2.5"
+								x="2"
+								y="16.75"
+								rx="2"
+							></rect>
+						</svg>
+					</button>
+					<ul
+						id="js-menuItems"
+						class="m-menubar__items f-normal f--regular f--18"
+					>
+						<li><button class="m-menubar__btn">Desert</button></li>
+						<li><button class="m-menubar__btn">Ocean</button></li>
+					</ul>
+				</div>
+			</div>
+			<div class="m-separator"></div>
+			<div class="main-section__timer">
+				<div class="m-timer__controls">
+					<button id="js-buttonReset" class="m-timer__ctrl-btn">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="40"
+							height="40"
+							viewBox="0 0 40 40"
+							fill="none"
+						>
+							<path
+								d="M18.3333 13.3333H21.6667V23.3333H18.3333V13.3333ZM20 33.3333C13.55 33.3333 8.33333 28.1167 8.33333 21.6667C8.33333 15.2167 13.55 9.99999 20 9.99999C25.3167 9.99999 29.8 13.5667 31.2 18.4167C31.6667 18.3333 32.0667 18.3333 32.5 18.3333C33.2333 18.3333 33.9667 18.4167 34.6667 18.55C34.1667 16.2333 33.15 14.1 31.7167 12.3167L34.0833 9.94999C33.3333 9.09999 32.5833 8.33332 31.7333 7.59999L29.3667 9.99999C26.7833 7.89999 23.5333 6.66666 20 6.66666C16.0218 6.66666 12.2064 8.24701 9.3934 11.0601C6.58035 13.8731 5 17.6884 5 21.6667C5 25.6449 6.58035 29.4602 9.3934 32.2733C12.2064 35.0863 16.0218 36.6667 20 36.6667C21.45 36.6667 22.8333 36.45 24.1667 36.0833C23.4167 35.1833 22.8333 34.1667 22.4167 33.0833C21.6667 33.25 20.8333 33.3333 20 33.3333ZM25 1.66666H15V4.99999H25V1.66666ZM31.6667 22.5V20L27.9167 23.75L31.6667 27.5V25C32.7717 25 33.8315 25.439 34.6129 26.2204C35.3943 27.0018 35.8333 28.0616 35.8333 29.1667C35.8333 29.8333 35.6833 30.4667 35.4 31.0333L37.2167 32.85C37.9167 31.8 38.3333 30.5333 38.3333 29.1667C38.3333 25.4833 35.35 22.5 31.6667 22.5ZM31.6667 33.3333C30.5616 33.3333 29.5018 32.8943 28.7204 32.1129C27.939 31.3315 27.5 30.2717 27.5 29.1667C27.5 28.5 27.65 27.8667 27.9333 27.3L26.1167 25.4833C25.4167 26.5333 25 27.8 25 29.1667C25 32.85 27.9833 35.8333 31.6667 35.8333V38.3333L35.4167 34.5833L31.6667 30.8333V33.3333Z"
+								fill="black"
+							/>
+						</svg>
+					</button>
+					<button id="js-buttonPlay" class="m-timer__ctrl-btn">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="41"
+							height="40"
+							viewBox="0 0 41 40"
+							fill="none"
+						>
+							<path
+								d="M25.5 4.99999H15.5V1.66666H25.5V4.99999ZM18.8333 23.3333H22.1667V13.3333H18.8333V23.3333ZM32.1667 21.6667C33.3333 21.6667 34.4333 21.8833 35.5 22.25V21.6667C35.5 18.1333 34.2667 14.8833 32.2167 12.3167L34.5833 9.94999C33.8333 9.09999 33.0833 8.33332 32.2333 7.59999L29.8667 9.99999C27.2833 7.89999 24.0333 6.66666 20.5 6.66666C16.5218 6.66666 12.7064 8.24701 9.8934 11.0601C7.08035 13.8731 5.5 17.6884 5.5 21.6667C5.5 25.6449 7.08035 29.4602 9.8934 32.2733C12.7064 35.0863 16.5218 36.6667 20.5 36.6667C21.4833 36.6667 22.4333 36.5667 23.35 36.3833C22.8333 35.4167 22.4667 34.3333 22.3 33.1833C21.7 33.2667 21.1167 33.3333 20.5 33.3333C14.05 33.3333 8.83333 28.1167 8.83333 21.6667C8.83333 15.2167 14.05 9.99999 20.5 9.99999C26.95 9.99999 32.1667 15.2167 32.1667 21.6667ZM28.8333 26.6667V36.6667L37.1667 31.6667L28.8333 26.6667Z"
+								fill="black"
+							/>
+						</svg>
+					</button>
+					<button id="js-buttonPause" class="m-timer__ctrl-btn">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="40"
+							height="40"
+							viewBox="0 0 40 40"
+							fill="none"
+						>
+							<path
+								d="M35 22.25C33.9333 21.8833 32.8333 21.6667 31.6667 21.6667C31.6667 15.2167 26.45 9.99999 20 9.99999C13.55 9.99999 8.33333 15.2167 8.33333 21.6667C8.33333 28.1167 13.55 33.3333 20 33.3333C20.6167 33.3333 21.2 33.2667 21.8 33.1833C21.9667 34.3333 22.3333 35.4167 22.85 36.3833C21.9333 36.5667 20.9833 36.6667 20 36.6667C16.0218 36.6667 12.2064 35.0863 9.3934 32.2733C6.58035 29.4602 5 25.6449 5 21.6667C5 17.6884 6.58035 13.8731 9.3934 11.0601C12.2064 8.24701 16.0218 6.66666 20 6.66666C23.5333 6.66666 26.7833 7.89999 29.3667 9.99999L31.7333 7.59999C32.5833 8.33332 33.3333 9.09999 34.0833 9.94999L31.7167 12.3167C33.8431 14.9689 35.0013 18.2672 35 21.6667V22.25ZM18.3333 23.3333H21.6667V13.3333H18.3333V23.3333ZM25 1.66666H15V4.99999H25V1.66666ZM32.7167 27.5V35.8333H35.8333V27.5H32.7167ZM27.5 35.8333H30.6333V27.5H27.5V35.8333Z"
+								fill="black"
+							/>
+						</svg>
+					</button>
+				</div>
+				<div class="m-timer__watch">
+					<div class="m-timer__clock m-watch">
+						<div
+							id="js-watchNumbers"
+							class="m-watch__numbers f-normal f--regular f--18"
+						>
+							<span style="--i: 0"><p>00</p></span>
+							<span style="--i: 1"><p>05</p></span>
+							<span style="--i: 2"><p>10</p></span>
+							<span style="--i: 3"><p>15</p></span>
+							<span style="--i: 4"><p>20</p></span>
+							<span style="--i: 5"><p>25</p></span>
+							<span style="--i: 6"><p>30</p></span>
+							<span style="--i: 7"><p>35</p></span>
+							<span style="--i: 8"><p>40</p></span>
+							<span style="--i: 9"><p>45</p></span>
+							<span style="--i: 10"><p>50</p></span>
+							<span style="--i: 11"><p>55</p></span>
+						</div>
+						<div class="m-watch__circle m-watch__circle--medium">
+							<div
+								id="js-watchSegundero"
+								class="m-watch__segundero"
+								style="--i: 60"
+							></div>
+							<div class="m-watch__circle m-watch__circle--inner">
+								<div
+									id="js-watchMinutero"
+									class="m-watch__minutero"
+									style="--i: 0"
+								></div>
+								<input
+									id="js-inputCounter"
+									type="number"
+									class="m-watch__counter f-digital f--48"
+									title="time-counter"
+									value="00"
+									min="00"
+									max="60"
+									step="01"
+									required
+								/>
+							</div>
+						</div>
+					</div>
+					<div class="m-timer__separator"></div>
+					<div class="m-timer__left-btn">
+						<label for="js-buttonMinus" class="f-normal f--regular f--18"
+							>Down</label
+						>
+						<div class="m-button m-button--minus">
+							<button id="js-buttonMinus" class="m-button__inner">
+								<svg
+									class="m-button__icon"
+									xmlns="http://www.w3.org/2000/svg"
+									width="33"
+									height="32"
+									viewBox="0 0 33 32"
+									fill="none"
+								>
+									<path
+										d="M14.9167 10.6667H17.5833V18.6667H14.9167V10.6667ZM20.25 1.33333H12.25V3.99999H20.25V1.33333ZM16.25 26.6667C11.09 26.6667 6.91667 22.4933 6.91667 17.3333C6.91667 12.1733 11.09 8 16.25 8C21.41 8 25.5833 12.1733 25.5833 17.3333C26.5167 17.3333 27.3967 17.5067 28.25 17.8V17.3333C28.25 14.5067 27.2633 11.9067 25.6233 9.85333L27.5167 7.95999C26.9167 7.27999 26.3167 6.66666 25.6367 6.08L23.7433 8C21.6767 6.31999 19.0767 5.33333 16.25 5.33333C13.0674 5.33333 10.0152 6.59761 7.76472 8.84805C5.51428 11.0985 4.25 14.1507 4.25 17.3333C4.25 20.5159 5.51428 23.5682 7.76472 25.8186C10.0152 28.069 13.0674 29.3333 16.25 29.3333C17.0367 29.3333 17.7967 29.2533 18.53 29.1067C18.1167 28.3333 17.8233 27.4667 17.69 26.5467C17.21 26.6133 16.7433 26.6667 16.25 26.6667ZM20.25 24V26.6667H30.9167V24H20.25Z"
+										fill="black"
+									/>
+								</svg>
+							</button>
+						</div>
+						<p class="f-normal f--regular f--18">-1 min</p>
+					</div>
+					<div class="m-timer__right-btn">
+						<label for="js-buttonPlus" class="f-normal f--regular f--18"
+							>Up</label
+						>
+						<div class="m-button m-button--plus">
+							<button id="js-buttonPlus" class="m-button__inner" title="minus">
+								<svg
+									class="m-button__icon"
+									xmlns="http://www.w3.org/2000/svg"
+									width="33"
+									height="32"
+									viewBox="0 0 33 32"
+									fill="none"
+								>
+									<path
+										d="M15.4167 10.6667H18.0833V18.6667H15.4167V10.6667ZM20.75 1.33333H12.75V3.99999H20.75V1.33333ZM16.75 26.6667C11.59 26.6667 7.41667 22.4933 7.41667 17.3333C7.41667 12.1733 11.59 8 16.75 8C21.91 8 26.0833 12.1733 26.0833 17.3333C27.0167 17.3333 27.8967 17.5067 28.75 17.8V17.3333C28.75 14.5067 27.7633 11.9067 26.1233 9.85333L28.0167 7.95999C27.4167 7.27999 26.8167 6.66666 26.1367 6.08L24.2433 8C22.1767 6.31999 19.5767 5.33333 16.75 5.33333C13.5674 5.33333 10.5152 6.59761 8.26472 8.84805C6.01428 11.0985 4.75 14.1507 4.75 17.3333C4.75 20.5159 6.01428 23.5682 8.26472 25.8186C10.5152 28.069 13.5674 29.3333 16.75 29.3333C17.5367 29.3333 18.2967 29.2533 19.03 29.1067C18.6167 28.3333 18.3233 27.4667 18.19 26.5467C17.71 26.6133 17.2433 26.6667 16.75 26.6667ZM27.4167 24V20H24.75V24H20.75V26.6667H24.75V30.6667H27.4167V26.6667H31.4167V24H27.4167Z"
+										fill="black"
+									/>
+								</svg>
+							</button>
+						</div>
+						<p class="f-normal f--regular f--18">+1 min</p>
+					</div>
+				</div>
+			</div>
+			<div class="m-separator"></div>
+			<div class="main-section__info">
+				<div class="main-section__info__subsection">
+					<div class="subsection__icon">
+						<svg
+							class="m-config-icon"
+							xmlns="http://www.w3.org/2000/svg"
+							width="41"
+							height="40"
+							viewBox="0 0 41 40"
+							fill="none"
+						>
+							<path
+								d="M38.5 32.3333C38.6667 32.3333 38.6667 32.5 38.5 32.6667L36.8333 35.5C36.6667 35.6667 36.5 35.6667 36.3333 35.6667L34.3333 35C33.8333 35.3333 33.5 35.5 33 35.8333L32.6667 38C32.6667 38.1667 32.5 38.3333 32.3333 38.3333H29C28.8333 38.3333 28.6667 38.1667 28.5 38L28.1667 35.8333C27.6667 35.6667 27.1667 35.3333 26.8333 35L24.8333 35.8333C24.6667 35.8333 24.5 35.8333 24.3333 35.6667L22.6667 32.8333C22.5 32.6667 22.6667 32.5 22.8333 32.3333L24.6667 31V29.3333L22.8333 28C22.6667 27.8333 22.6667 27.6667 22.6667 27.5L24.3333 24.6667C24.5 24.5 24.6667 24.5 24.8333 24.5L26.8333 25.3333C27.3333 25 27.6667 24.8333 28.1667 24.5L28.5 22.3333C28.5 22.1667 28.6667 22 29 22H32.3333C32.5 22 32.6667 22.1667 32.6667 22.3333L33 24.5C33.5 24.6667 34 25 34.5 25.3333L36.5 24.5C36.6667 24.5 37 24.5 37 24.6667L38.6667 27.5C38.8333 27.6667 38.6667 27.8333 38.5 28L36.6667 29.3333V31L38.5 32.3333ZM33 30C33 28.6667 31.8333 27.5 30.5 27.5C29.1667 27.5 28 28.6667 28 30C28 31.3333 29.1667 32.5 30.5 32.5C31.8333 32.5 33 31.3333 33 30ZM22.1667 23.3333V13.3333H18.8333V23.3333M25.5 1.66666H15.5V4.99999H25.5V1.66666ZM19.3333 33.3333C13.5 32.6667 8.83333 27.6667 8.83333 21.6667C8.83333 15.1667 14 9.99999 20.5 9.99999C25.8333 9.99999 30.3333 13.5 31.6667 18.3333C33 18.5 34.1667 18.8333 35.3333 19.3333C34.8333 16.6667 33.8333 14.3333 32.1667 12.3333L34.6667 9.99999C33.8333 9.16666 33 8.33332 32.1667 7.66666L29.8333 9.99999C27.3333 7.83332 24 6.66666 20.5 6.66666C12.1667 6.66666 5.5 13.3333 5.5 21.6667C5.5 30 12.1667 36.6667 20.5 36.6667H21C20.1667 35.6667 19.6667 34.5 19.3333 33.3333Z"
+								fill="black"
+							/>
+						</svg>
+						<div class="m-icon-line"></div>
+					</div>
+					<div class="subsection__body">
+						<div class="subsection__item">
+							<input
+								id="js-cycleCheck"
+								type="checkbox"
+								class="m-checkbox__input"
+							/>
+							<label
+								for="js-cycleCheck"
+								class="m-checkbox__label f-normal f--semibold f--18"
+								>On Cycle</label
+							>
+						</div>
+						<div class="subsection__item">
+							<input
+								id="js-pauseCheck"
+								type="checkbox"
+								class="m-checkbox__input"
+							/>
+							<label
+								for="js-pauseCheck"
+								class="m-checkbox__label f-normal f--semibold f--18"
+								>Pause time</label
+							>
+						</div>
+						<div class="subsection__item">
+							<button
+								id="js-resetData"
+								class="f-normal f--semibold f--18 m-reset-button"
+								title="Reset all data"
+							>
+								Reset data
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="m-separator"></div>
+				<div class="main-section__info__subsection">
+					<div class="subsection__icon">
+						<svg
+							class="m-data-icon"
+							xmlns="http://www.w3.org/2000/svg"
+							width="53"
+							height="53"
+							viewBox="0 0 53 53"
+							fill="none"
+						>
+							<path
+								d="M44.4869 18.2629L47.9385 14.8113L44.8159 11.6887L41.0441 15.4583C38.7253 14.0671 36.0223 13.25 33.125 13.25C24.603 13.25 17.6667 20.1842 17.6667 28.7083C17.6667 37.2325 24.603 44.1667 33.125 44.1667C41.647 44.1667 48.5833 37.2325 48.5833 28.7083C48.5816 24.835 47.1187 21.1048 44.4869 18.2629ZM33.125 39.75C27.0366 39.75 22.0833 34.7967 22.0833 28.7083C22.0833 22.62 27.0366 17.6667 33.125 17.6667C39.2134 17.6667 44.1667 22.62 44.1667 28.7083C44.1667 34.7967 39.2134 39.75 33.125 39.75Z"
+								fill="black"
+							/>
+							<path
+								d="M30.9167 22.0833H35.3333V30.9167H30.9167V22.0833ZM28.7083 6.625H37.5417V11.0417H28.7083V6.625ZM6.625 17.6667H15.4583V22.0833H6.625V17.6667ZM6.625 35.3333H15.4583V39.75H6.625V35.3333ZM4.41667 26.5H13.2279V30.9167H4.41667V26.5Z"
+								fill="black"
+							/>
+						</svg>
+						<div class="m-icon-line"></div>
+					</div>
+					<div class="subsection__body">
+						<div class="subsection__item">
+							<p class="f-normal f--semibold f--18">Cycles Count:</p>
+							<p
+								id="js-cycleTime"
+								class="subsection__item__right f-digital f--18"
+							>
+								--
+							</p>
+						</div>
+						<div class="subsection__item">
+							<p class="f-normal f--semibold f--18">Total Work Time:</p>
+							<p
+								id="js-workTime"
+								class="subsection__item__right f-digital f--18"
+							>
+								--:--
+							</p>
+						</div>
+						<div class="subsection__item">
+							<p class="f-normal f--semibold f--18">Total Pause Time:</p>
+							<p
+								id="js-pauseTime"
+								class="subsection__item__right f-digital f--18"
+							>
+								--:--
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<audio
+			id="tone"
+			class="m-audio"
+			src="assets/audio/alarm-tone.wav"
+			preload="auto"
+		></audio>
 		<!-- add javascript file -->
-		<script src="assets/js/script.js"></script>
+		<script type="module" src="assets/js/script.js"></script>
 	</body>
 </html>
