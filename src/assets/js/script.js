@@ -1,6 +1,9 @@
 "use strict";
 // Variables for DOM manipulation;
 const hamburguerMenu = document.getElementById("js-hamburguerMenu");
+const buttonTheme = document.querySelectorAll(".js-themeButton");
+const buttonThemeDesert = document.getElementById("js-buttonThemeDesert");
+const buttonThemeOcean = document.getElementById("js-buttonThemeOcean");
 const inputCounter = document.getElementById("js-inputCounter");
 const watchMinutero = document.getElementById("js-watchMinutero");
 const watchSegundero = document.getElementById("js-watchSegundero");
@@ -38,6 +41,22 @@ document.addEventListener("click", (event) => {
 		hamburguerMenu.classList.remove("active");
 	}
 });
+buttonTheme.forEach((item) => {
+	item.addEventListener("click", (event) => {
+		setTheme(item.getAttribute("data-theme"));
+	});
+});
+function setTheme(theme) {
+	document.body.className = theme;
+	localStorage.setItem("theme", theme);
+}
+(function () {
+	let theme = localStorage.getItem("theme");
+	if (theme != "theme-ocean" && theme != "theme-sunset") {
+		theme = "theme-desert";
+	}
+	setTheme(theme);
+})();
 
 function timerPlay() {
 	timerActive = true;
@@ -179,8 +198,3 @@ buttonResetData.addEventListener("click", (event) => {
 	dataWork.innerText = "--:--";
 	dataPause.innerText = "--:--";
 });
-
-//todo: minimize script, collapse internal function and create more readable structure
-//todo: add theme feacture
-//todo: add help to the page
-//todo: fix opengraph, (help on vercel)

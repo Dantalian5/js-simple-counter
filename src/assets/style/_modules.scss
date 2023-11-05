@@ -27,7 +27,7 @@
 			var(--c-main-bg-soft) 7.46%,
 			var(--c-main-bg-dark) 90.46%
 		);
-		box-shadow: -1px -1px 4px 2px rgba(0, 0, 0, 0.25) inset;
+		box-shadow: var(--shadow-3d-inner);
 		opacity: 0;
 		visibility: hidden;
 		transition: all 200ms;
@@ -43,7 +43,7 @@
 			width: 100%;
 			height: 2px;
 			border-radius: 4px;
-			background: var(--c-bright-green);
+			background: var(--c-accent-neutral);
 		}
 	}
 }
@@ -99,7 +99,7 @@
 	width: 5rem;
 	height: 0.125rem;
 	border-radius: 4px;
-	background: var(--c-rojo-sol);
+	background: var(--c-accent-negative);
 }
 .m-checkbox {
 	&__label {
@@ -111,9 +111,8 @@
 			top: 50%;
 			transform: translateY(-50%);
 			border-radius: 50%;
-			box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.25) inset,
-				-1px -1px 2px 0px rgba(0, 0, 0, 0.25);
-			background: #d9d9d9;
+			box-shadow: var(--shadow-checkbox-inner), var(--shadow-checkbox-outer);
+			background: var(--c-neutral-base);
 		}
 		&::before {
 			left: 0;
@@ -124,7 +123,7 @@
 			left: 0.25rem;
 			width: 1rem;
 			height: 1rem;
-			border: 1px solid #e5dbc9;
+			border: 1px solid var(--c-neutral-high);
 		}
 	}
 	&__input {
