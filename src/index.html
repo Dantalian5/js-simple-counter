@@ -122,6 +122,7 @@
 							<button
 								data-theme="theme-desert"
 								class="m-menubar__btn js-themeButton"
+								title="Choose Desert color theme"
 							>
 								Desert
 							</button>
@@ -130,6 +131,7 @@
 							<button
 								data-theme="theme-ocean"
 								class="m-menubar__btn js-themeButton"
+								title="Choose Ocean color theme"
 							>
 								Ocean
 							</button>
@@ -138,6 +140,7 @@
 							<button
 								data-theme="theme-sunset"
 								class="m-menubar__btn js-themeButton"
+								title="Choose Sunset color theme"
 							>
 								Sunset
 							</button>
@@ -242,7 +245,7 @@
 							>Down</label
 						>
 						<div class="m-button m-button--minus">
-							<button id="js-buttonMinus" class="m-button__inner">
+							<button id="js-buttonMinus" class="m-button__inner" title="Down">
 								<svg
 									class="m-button__icon"
 									xmlns="http://www.w3.org/2000/svg"
@@ -265,7 +268,7 @@
 							>Up</label
 						>
 						<div class="m-button m-button--plus">
-							<button id="js-buttonPlus" class="m-button__inner" title="minus">
+							<button id="js-buttonPlus" class="m-button__inner" title="Up">
 								<svg
 									class="m-button__icon"
 									xmlns="http://www.w3.org/2000/svg"
@@ -314,6 +317,7 @@
 							<label
 								for="js-cycleCheck"
 								class="m-checkbox__label f-normal f--semibold f--18"
+								title="When the counter ends, the timer restarts"
 								>On Cycle</label
 							>
 						</div>
@@ -326,7 +330,22 @@
 							<label
 								for="js-pauseCheck"
 								class="m-checkbox__label f-normal f--semibold f--18"
-								>Pause time</label
+								title="Display how much time the timer has been paused"
+								>Show pause time</label
+							>
+						</div>
+						<div class="subsection__item">
+							<input
+								id="js-soundCheck"
+								type="checkbox"
+								class="m-checkbox__input"
+							/>
+							<label
+								for="js-soundCheck"
+								class="m-checkbox__label f-normal f--semibold f--18"
+								title="Make a sound when the timer reaches zero"
+								>Sound on end
+								<span class="f--regular">(not working on mobile)</span></label
 							>
 						</div>
 						<div class="subsection__item">

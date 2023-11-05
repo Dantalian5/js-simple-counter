@@ -6,6 +6,7 @@ Solution to the second practical project of the JavaScript course at [start2impa
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [Functionalities](#functionalities)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
@@ -34,6 +35,12 @@ Extra features:
 - Choose from different color themes.
 - Select from various skins.
 - Access 'help' and tooltips to facilitate the use of the app.
+
+### Functionalities
+
+Functionalities of webpage:
+
+- The selected theme in previous sections will be retained across sections (cookies).
 
 ### Screenshot
 
