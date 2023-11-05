@@ -32,21 +32,14 @@ let timerPauseTime = 0;
 buttonPlus.addEventListener("click", (event) => {
 	valueCounterUpdate(+1);
 	valueCounterOldValue = !timerActive ? valueCounter : valueCounterOldValue;
-	if (!timerActive) {
-		valueCounterOldValue = valueCounter;
-	}
 });
 buttonMinus.addEventListener("click", (event) => {
 	valueCounterUpdate(-1);
-	if (!timerActive) {
-		valueCounterOldValue = valueCounter;
-	}
+	valueCounterOldValue = !timerActive ? valueCounter : valueCounterOldValue;
 });
 inputCounter.addEventListener("input", (event) => {
 	valueCounterUpdate(0);
-	if (!timerActive) {
-		valueCounterOldValue = valueCounter;
-	}
+	valueCounterOldValue = !timerActive ? valueCounter : valueCounterOldValue;
 });
 buttonPlay.addEventListener("click", (event) => {
 	if (!timerActive && valueCounter != 0) {
@@ -93,6 +86,7 @@ function setTheme(theme) {
 	document.body.className = theme;
 	localStorage.setItem("theme", theme);
 }
+// the next function start on load to use the preview selected theme
 (function () {
 	let theme = localStorage.getItem("theme");
 	if (theme != "theme-ocean" && theme != "theme-sunset") {
@@ -105,12 +99,7 @@ function setTheme(theme) {
 function valueCounterUpdate(val = 0, oldValue = false) {
 	// function for updating input value on DOM & internal value using -1, 0, +1 as step values;
 	// if oldValue=true, then take that value;
-	let cont;
-	if (oldValue) {
-		cont = valueCounterOldValue;
-	} else {
-		cont = +inputCounter.value + val;
-	}
+	let cont = oldValue ? valueCounterOldValue : +inputCounter.value + val;
 	inputCounter.value = valueValidator(cont, 60);
 	valueCounter = +inputCounter.value;
 	WatchUpdate(valueCounter, "-");
@@ -126,14 +115,16 @@ function WatchUpdate(minutes, seconds) {
 }
 //--Time Manipulation Functions--
 function timerPlay() {
-	// this is the main function that runs the timer
+	// This function is responsible for running the timer
 	timerActive = true;
 	clearInterval(pauseTime);
 	playTime = setInterval(function () {
+		// Decrease the countdown timer by 1 second
 		--segundero;
 		switch (true) {
 			case valueCounter == 0:
 				if (cycleCheck.checked) {
+					// Update the value counter and data
 					valueCounterUpdate(0, true);
 					DataUpdate(1, 1, 0);
 				} else {
@@ -142,9 +133,11 @@ function timerPlay() {
 				}
 				break;
 			case segundero == 0:
+				// Reset the countdown timer to 60 seconds and update the value counter
 				segundero = 60;
 				valueCounterUpdate(-1);
 		}
+		// Update the displayed time
 		WatchUpdate("-", segundero);
 	}, 1000);
 }
@@ -168,13 +161,11 @@ function timerReset() {
 	WatchUpdate("-", 60);
 }
 //--Data manipulation functions--
-function DataUpdate(cycle, work, pause, reset = false) {
+function DataUpdate(cycle, work, pause) {
 	// this function update all possibles data input from the watch
 	timerCycles = +timerCycles + cycle;
 	timerWorkTime = +timerWorkTime + work;
 	timerPauseTime = +timerPauseTime + pause;
-
-	console.log(timerPauseTime);
 	dataCycles.innerText = valueValidator(+timerCycles);
 	dataWork.innerText =
 		valueValidator(Math.floor(+timerWorkTime / 60)) +
@@ -187,16 +178,13 @@ function DataUpdate(cycle, work, pause, reset = false) {
 }
 //--Functionalities Functions--
 function valueValidator(value, max = 99) {
-	//the main task is prevent values of less or more than 2 digits, adding a 0 in front or limiting to 99
-	switch (true) {
-		case value < 0 || value == "":
-			value = 0;
-		case value < 10:
-			value = "0" + value;
-			break;
-		case value > max:
-			value = max;
-			break;
+	// Check if the value is an empty string or not a number
+	if (value < 0 || value == "") {
+		value = 0; // Set the value to 0 if it's an empty string or not a number
+	} else if (value < 10) {
+		value = "0" + value; // Add a leading zero if it's less than 10
+	} else if (value > max) {
+		value = max; // Limit the value to 'max' if it's greater than this limit
 	}
 	return value;
 }
