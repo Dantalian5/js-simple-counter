@@ -4,7 +4,9 @@ const hamburguerMenu = document.getElementById("js-hamburguerMenu");
 const buttonTheme = document.querySelectorAll(".js-themeButton");
 const inputCounter = document.getElementById("js-inputCounter");
 const watchMinutero = document.getElementById("js-watchMinutero");
+const handMinutes = document.getElementById("js-watchMinutero");
 const watchSegundero = document.getElementById("js-watchSegundero");
+const handSeconds = document.getElementById("js-watchSegundero");
 const buttonPlus = document.getElementById("js-buttonPlus");
 const buttonMinus = document.getElementById("js-buttonMinus");
 const buttonPlay = document.getElementById("js-buttonPlay");
@@ -17,6 +19,8 @@ const soundCheck = document.getElementById("js-soundCheck");
 const dataCycles = document.getElementById("js-cycleTime");
 const dataWork = document.getElementById("js-workTime");
 const dataPause = document.getElementById("js-pauseTime");
+const alarmTone = document.getElementById("tone");
+import {valueValidator, Alarm} from "./extras";
 // Variables for Script manipulation;
 let valueCounter = 0; // value of the counter input
 let valueCounterOldValue = 0; // value of the counter input after a cycle
@@ -27,6 +31,15 @@ let timerActive = false; // where the timer is active or no
 let timerCycles = 0;
 let timerWorkTime = 0;
 let timerPauseTime = 0;
+
+// the next function start on load to use the preview selected theme
+(function () {
+	let theme = localStorage.getItem("theme");
+	if (theme != "theme-ocean" && theme != "theme-sunset") {
+		theme = "theme-desert";
+	}
+	setTheme(theme);
+})();
 
 //-DOM manipulation: eventListeners if controls buttons;-
 buttonPlus.addEventListener("click", (event) => {
@@ -55,12 +68,7 @@ buttonReset.addEventListener("click", (event) => {
 	timerReset();
 });
 buttonResetData.addEventListener("click", (event) => {
-	timerCycles = 0;
-	timerWorkTime = 0;
-	timerPauseTime = 0;
-	dataCycles.innerText = "--";
-	dataWork.innerText = "--:--";
-	dataPause.innerText = "--:--";
+	DataReset();
 });
 //-Hamburger Menu EventListeners-
 hamburguerMenu.addEventListener("click", (event) => {
@@ -86,15 +94,9 @@ function setTheme(theme) {
 	document.body.className = theme;
 	localStorage.setItem("theme", theme);
 }
-// the next function start on load to use the preview selected theme
-(function () {
-	let theme = localStorage.getItem("theme");
-	if (theme != "theme-ocean" && theme != "theme-sunset") {
-		theme = "theme-desert";
-	}
-	setTheme(theme);
-})();
+
 //-Functions-
+
 //--Watch Manipulation Functions--
 function valueCounterUpdate(val = 0, oldValue = false) {
 	// function for updating input value on DOM & internal value using -1, 0, +1 as step values;
@@ -102,17 +104,9 @@ function valueCounterUpdate(val = 0, oldValue = false) {
 	let cont = oldValue ? valueCounterOldValue : +inputCounter.value + val;
 	inputCounter.value = valueValidator(cont, 60);
 	valueCounter = +inputCounter.value;
-	WatchUpdate(valueCounter, "-");
+	handMinutes.setAttribute("style", "--i:" + valueCounter);
 }
-function WatchUpdate(minutes, seconds) {
-	// function to update the states of the minutes and seconds dial;
-	if (minutes != "-") {
-		watchMinutero.setAttribute("style", "--i:" + minutes);
-	}
-	if (seconds != "-") {
-		watchSegundero.setAttribute("style", "--i:" + seconds);
-	}
-}
+
 //--Time Manipulation Functions--
 function timerPlay() {
 	// This function is responsible for running the timer
@@ -129,7 +123,7 @@ function timerPlay() {
 					DataUpdate(1, 1, 0);
 				} else {
 					timerReset();
-					timerAlarm();
+					Alarm(soundCheck.checked, alarmTone);
 				}
 				break;
 			case segundero == 0:
@@ -138,7 +132,7 @@ function timerPlay() {
 				valueCounterUpdate(-1);
 		}
 		// Update the displayed time
-		WatchUpdate("-", segundero);
+		handSeconds.setAttribute("style", "--i:" + segundero);
 	}, 1000);
 }
 function timerPause() {
@@ -158,8 +152,9 @@ function timerReset() {
 	clearInterval(pauseTime);
 	segundero = 60;
 	valueCounterUpdate(0, true);
-	WatchUpdate("-", 60);
+	handSeconds.setAttribute("style", "--i:" + 60);
 }
+
 //--Data manipulation functions--
 function DataUpdate(cycle, work, pause) {
 	// this function update all possibles data input from the watch
@@ -176,27 +171,11 @@ function DataUpdate(cycle, work, pause) {
 		":" +
 		valueValidator(+timerPauseTime % 60);
 }
-//--Functionalities Functions--
-function valueValidator(value, max = 99) {
-	// Check if the value is an empty string or not a number
-	if (value < 0 || value == "") {
-		value = "00"; // Set the value to 0 if it's an empty string or not a number
-	} else if (value < 10) {
-		value = "0" + value; // Add a leading zero if it's less than 10
-	} else if (value > max) {
-		value = max; // Limit the value to 'max' if it's greater than this limit
-	}
-	return value;
-}
-function timerAlarm() {
-	// Deploy an alert when timer is zero, and use a sound if requested
-	if (soundCheck.checked) {
-		var audioElement = document.getElementById("tone");
-		audioElement.play();
-		audioElement.onended = function () {
-			alert("Time Over!");
-		};
-	} else {
-		alert("Time Over!");
-	}
+function DataReset() {
+	timerCycles = 0;
+	timerWorkTime = 0;
+	timerPauseTime = 0;
+	dataCycles.innerText = "--";
+	dataWork.innerText = "--:--";
+	dataPause.innerText = "--:--";
 }
