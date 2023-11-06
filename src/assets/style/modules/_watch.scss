@@ -28,7 +28,7 @@
 		position: absolute;
 		inset: 0;
 		border-radius: 50%;
-		& > span {
+		&__item {
 			position: absolute;
 			transform: rotate(calc(30deg * var(--i)));
 			inset: 2.5%;
