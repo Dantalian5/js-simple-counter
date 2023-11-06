@@ -1,0 +1,9 @@
+ ✔ Add & pulish og:specs. @done (05/11/2023, 18:05:33)
+ ☐ minimize script, collapse internal function.
+ ☐ create more readable structure.
+ ✔ add theme feacture @done (05/11/2023, 13:25:15)
+ ☐ add better theme structure on menu (rearange menu).
+ ✔ add help to the page. (donde using simple "title" tag) @done (05/11/2023, 18:17:28)
+ ✔ the sound on the end is late (coming after the js alert), search a way to fix that. @done (06/11/2023, 10:49:52)
+ ☐ Seconds-hand make a clockwise turn every time he finished a step of 60s, improve that, (is an error)
+ 

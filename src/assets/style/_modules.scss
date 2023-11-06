@@ -104,6 +104,7 @@
 .m-checkbox {
 	&__label {
 		margin-left: 2.5rem;
+		cursor: pointer;
 		&::before,
 		&::after {
 			content: "";
