@@ -180,7 +180,7 @@ function DataUpdate(cycle, work, pause) {
 function valueValidator(value, max = 99) {
 	// Check if the value is an empty string or not a number
 	if (value < 0 || value == "") {
-		value = 0; // Set the value to 0 if it's an empty string or not a number
+		value = "00"; // Set the value to 0 if it's an empty string or not a number
 	} else if (value < 10) {
 		value = "0" + value; // Add a leading zero if it's less than 10
 	} else if (value > max) {
@@ -191,7 +191,12 @@ function valueValidator(value, max = 99) {
 function timerAlarm() {
 	// Deploy an alert when timer is zero, and use a sound if requested
 	if (soundCheck.checked) {
-		document.getElementById("tone").play();
+		var audioElement = document.getElementById("tone");
+		audioElement.play();
+		audioElement.onended = function () {
+			alert("Time Over!");
+		};
+	} else {
+		alert("Time Over!");
 	}
-	alert("Time Over!");
 }

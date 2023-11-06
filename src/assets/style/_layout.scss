@@ -49,6 +49,16 @@
 		}
 	}
 }
+.footer {
+	padding: 1rem;
+	& span {
+		color: red;
+	}
+	& a {
+		color: rgb(28, 28, 144);
+		text-decoration: underline;
+	}
+}
 
 @media (min-width: 42.5rem) {
 	.main-section {
@@ -64,6 +74,7 @@
 
 @media (min-width: 62.5rem) {
 	.main-section {
+		margin-top: 1rem;
 		&__head,
 		&__timer {
 			padding-inline: 4rem;

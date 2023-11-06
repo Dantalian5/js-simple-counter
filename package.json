@@ -11,7 +11,7 @@
 	},
 	"keywords": [],
 	"author": "Marcos Valenzuela",
-	"license": "ISC",
+	"license": "MIT",
 	"devDependencies": {
 		"@parcel/packager-raw-url": "^2.10.0",
 		"@parcel/transformer-sass": "^2.10.0",
