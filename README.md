@@ -79,7 +79,7 @@
 
 ## About The Project
 
-[![Time-Counter Screen Shot][product-screenshot]](./screenshot.jpg)
+[![Time-Counter Screen Shot][product-screenshot]](./screenshots/screenshot.png)
 
 The main task is to create a counter that, with the help of two buttons, allows the user to increase and decrease the counter. Based on this task, the application starts with an adjustable timer that can be configured as a simple timer or a Pomodoro timer.
 
@@ -231,4 +231,4 @@ Made and designed with love by [me](https://marcosvalenzuela.netlify.app).
 [license-url]: https://github.com/Dantalian5/js-simple-counter/blob/master/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/marcos-valenzuela-coding
-[product-screenshot]: ./screenshot.jpg
+[product-screenshot]: ./screenshots/screenshot.png
